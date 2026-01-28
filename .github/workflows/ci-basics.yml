@@ -18,8 +18,8 @@ jobs:
         run: |
           pwd
           ls -la
-     - name: Check installed tools
-        run: |
-          git --version
-          bash --version
+      - name: Check installed tools
+         run: |
+           git --version
+           bash --version
 
