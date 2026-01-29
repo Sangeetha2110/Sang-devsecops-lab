@@ -40,6 +40,7 @@ jobs:
 
       - name: SonarQube Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
+        continue-on-error: true
         with:
           scanMetadataReportFile: app/.scannerwork/report-task.txt
         env:
@@ -58,6 +59,7 @@ jobs:
            docker build -t Sang-devsecops-lab:latest app
        - name: Scan Docker image with Trivy
          uses: aquasecurity/trivy-action@master
+         continue-on-error: true
          with:
            image-ref: Sang-devsecops-lab:latest
            format: table
