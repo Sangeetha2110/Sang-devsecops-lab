@@ -76,13 +76,13 @@ jobs:
 
        - name: Tag Docker image with commit SHA
          run: |
-           docker tag sang-devsecops-lab:latest sang123/Sang-devsecops-lab:${{ github.sha }}
+           docker tag sang-devsecops-lab:latest sang123/sang-devsecops-lab:${{ github.sha }}
 
        - name: Tag Docker image with commit SHA
          run: |
-            docker tag sang-devsecops-lab:latest sang123/Sang-devsecops-lab:latest
+            docker tag sang-devsecops-lab:latest sang123/sang-devsecops-lab:latest
 
        - name: Push Docker image to Docker Hub
          run: |
-            docker push sang123/Sang-devsecops-lab:${{ github.sha }}
-            docker push sang123/Sang-devsecops-lab:latest
+            docker push sang123/sang-devsecops-lab:${{ github.sha }}
+            docker push sang123/sang-devsecops-lab:latest
