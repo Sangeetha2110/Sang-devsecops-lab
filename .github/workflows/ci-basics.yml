@@ -64,13 +64,13 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t sang123/sang-devsecops-lab:latest app
+          docker build -t sang-devsecops-lab:latest app
 
       - name: Scan Docker image with Trivy
         uses: aquasecurity/trivy-action@master
         continue-on-error: true
         with:
-          image-ref: sang123/sang-devsecops-lab:latest
+          image-ref: sang-devsecops-lab:latest
           format: table
           exit-code: 1
           severity: CRITICAL,HIGH
@@ -86,11 +86,11 @@ jobs:
       - name: Tag Docker image with commit SHA
         if: github.event_name == 'push'
         run: |
-          docker tag sang123/sang-devsecops-lab:latest sang123/sang-devsecops-lab:${{ github.sha }}
+          docker tag sang-devsecops-lab:latest sangeethaa21/sang-devsecops-lab:${{ github.sha }}
 
       - name: Push Docker image to Docker Hub
         if: github.event_name == 'push'
         run: |
-          docker push sang123/sang-devsecops-lab:${{ github.sha }}
-          docker push sang123/sang-devsecops-lab:latest
+          docker push sangeethaa21/sang-devsecops-lab:${{ github.sha }}
+          docker push sangeethaa21/sang-devsecops-lab:latest
 
